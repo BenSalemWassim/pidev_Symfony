@@ -148,7 +148,7 @@
 
                                     <!-- Trigger -->
                                     <div class="header-notifications-trigger" >
-                                        <a href="#" id="test22"><i class="icon-feather-bell"></i><span>{{ mgilet_notification_unseen_count(app.user) }}</span></a>
+                                        <a href="#" id="test22"><i class="icon-feather-bell"></i><span> {% if  app.user is not null %} {{ mgilet_notification_unseen_count(app.user) }}{% endif %}</span></a>
                                     </div>
 
                                     <!-- Dropdown -->
@@ -163,7 +163,7 @@
                                         </div>
 
                                         <div class="header-notifications-content">
-                                            {{ mgilet_notification_render(app.user) }}
+                                            {% if  app.user is not null %}  {{ mgilet_notification_render(app.user) }} {% endif %}
 
                                         </div>
 

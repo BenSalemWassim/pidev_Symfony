@@ -24,10 +24,10 @@ class QuestionType extends AbstractType
                 'Design'=> 'Design',
                 'Marketing'=> 'Marketing',
 
-                'Réseaux'=> 'Reseaux',
+                 'Réseaux'=> 'Reseaux',
                  'Systèmes d\'exploitation' =>'Systèmes dexploitation',
-'Matériel & logiciels'=>'Matériel & logiciels',
-'Jeux vidéo' => 'Jeux vidéo',
+                 'Matériel & logiciels'=>'Matériel & logiciels',
+                'Jeux vidéo' => 'Jeux vidéo',
 
             ],
             'required'=> true,

@@ -14,12 +14,10 @@ class ForumController extends Controller
     public function afficherforumAction(Request $request)
     {
 
-        $question = new Question ();
-        $form= $this->createForm(QuestionType::class,$question);
-        $form->handleRequest($request);
+
 
         $res= array();
-        $rr[0]= ["Developpement Web"];
+        $rr[0]= ['c'=>"Developpement Web"];
         $rr[1]= ['c'=>"Développement Mobile"];
         $rr[2]= ['c'=>"Design"];
         $rr[3]= ['c'=>"Marketing"];
@@ -41,7 +39,9 @@ class ForumController extends Controller
                 'der'=>$der
             ];
         }
-
+        $question = new Question ();
+        $form= $this->createForm(QuestionType::class,$question);
+        $form->handleRequest($request);
 
 
 
