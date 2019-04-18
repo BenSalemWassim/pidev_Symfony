@@ -1,0 +1,106 @@
+{% extends "::base.html.twig" %}
+
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+
+    <div class="wrapper" class="form-group">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('forum_homepage') }}">Forum</a></li>
+                <li class="breadcrumb-item"><a href="{{ path('categorie', {'id':  question.categorie }) }}">{{ question.categorie}}</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Question #{{ question.id }}</li>
+            </ol>
+        </nav>
+
+        <div class="card border-light mb-3">
+            <div class="card-header">
+                <h4 class="card-title">{{ question.titre }}</h4>
+                <p class="text-muted ">{{ question.categorie }}</p>
+
+            </div>
+            <div class="card-body">
+                <div></div>
+
+                <br>
+
+                <p class="card-text">{{ question.contenu }}</p>
+                <footer class="blockquote-footer">
+                    par {{ question.writer.username }}
+                    <cite title="Source Title">,{{ question.date | date('Y-m-d\\TH:i:sP')}}</cite></footer>
+
+            </div>
+            <div class="card-footer text-muted text-align-left">
+                {{ facebookButton() }}
+                {{ linkedinButton() }}                   {{ twitterButton() }}                 {{ pinterestButton() }}  {% if question.writer.id == app.user.id %}
+                    <button class="btn btn-danger btn-sm float-right"  ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a  href="{{ path('deletequestion', { id: question.id }) }}  "  ><strong>Supprimer</strong> </a></button>
+                {% endif %}
+            </div>
+
+        </div>
+    <div class="wrapperx" class="form-group">
+        <div class="card">
+            <div class="card-body">
+                <div class="col-sm-10">
+                    {{ form_start(form) }} ajouter reponse: {{ form_widget(form.contenu) }}</br>
+
+                </div>
+                <div class="btn btn-primary">                {{ form_widget(form.Repondre) }}
+                    {{ form_end(form) }}
+                </div>
+
+            </div>
+        </div>
+        <script src="/js/jquery-3.2.1.min.js"></script>
+        <script src="/bootstrap/js/bootstrap.min.js"></script>
+        <script id="bs-live-reload" data-sseport="63492" data-lastchange="1554837737416" src="/js/livereload.js"></script>
+
+    </div>
+    {% for r in reps %}
+        <div class="wrapperx" class="form-group">
+            <div class="card"> <div></div> <div class="card-header">
+                   {{ r.writer }}
+                    {% if r.writer.id == app.user.id %}
+                        <button class="btn btn-warning btn-sm float-right" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ path('update', {'idq':question.id , 'id':r.id }) }}"> <strong>Edit</strong> </a> </button>
+
+                        <button class="btn btn-danger btn-sm float-right"  ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a href="{{ path('deletereponse', { idq: question.id , id: r.id}) }}  "><strong>Supprimer</strong> </a></button>
+{% endif %}
+                </div>
+                <div class="card-body">
+
+
+
+
+
+
+
+
+
+
+                <p class="card-text" aria-readonly="true">{{ r.contenu }}</p>
+                    <footer class="blockquote-footer">
+                        <cite title="Source Title">{{ r.date | date('Y-m-d\\TH:i:sP')}}</cite></footer>
+
+                </div>
+            </div>
+
+        </div>
+
+
+    {% endfor %}
+    {# display navigation #}
+    <div class="navigation text-center flex justify-content-center" >
+        {{ knp_pagination_render(reps) }}
+    </div>
+    </div>
+
+
+
+{% endblock %}

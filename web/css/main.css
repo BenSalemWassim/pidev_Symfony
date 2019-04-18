@@ -1,0 +1,173 @@
+
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
+@import url(https://fonts.googleapis.com/css?family=Bree+Serif);
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: middle;
+}
+
+input:focus {
+    outline:none;
+}
+
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+
+ol, ul {
+    list-style: none;
+}
+
+
+nav ul {
+    justify-content: center;
+    display: flex ;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+p {line-height: inherit;}
+
+body {
+    background: #222;
+    min-height: 100%;
+    font-family: 'Century Gothic', CenturyGothic, AppleGothic, sans-serif;
+}
+
+/* -------------------------------------------- */
+/*            material design icons             */
+/* -------------------------------------------- */
+
+.material-icons {
+    font-family: 'Material Icons';
+    font-weight: normal;
+    font-style: normal;
+    font-size: 24px;  /* Preferred icon size */
+    display: inline-block;
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: inherit;
+    word-wrap: normal;
+    white-space: nowrap;
+    direction: ltr;
+    cursor: default;
+
+    /* Support for all WebKit browsers. */
+    -webkit-font-smoothing: antialiased;
+    /* Support for Safari and Chrome. */
+    text-rendering: optimizeLegibility;
+
+    /* Support for Firefox. */
+    -moz-osx-font-smoothing: grayscale;
+
+    /* Support for IE. */
+    font-feature-settings: 'liga';
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 80%;
+    margin: 100px 100px 0 100px ;
+}
+.wrapperx {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 70%;
+    margin: 20px auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    -webkit-box-shadow: 0px 4px 51px -1px rgba(0, 0, 0, 0.8);
+    -moz-box-shadow: 0px 4px 51px -1px rgba(0, 0, 0, 0.8);
+    box-shadow: 0px 4px 51px -1px rgba(0, 0, 0, 0.8);
+}
+
+th {
+    background: #777;
+    padding: 10px;
+    color: #FFF;
+}
+
+.forum-topicview-row {
+    border-bottom: 1px solid #555;
+}
+
+td {
+    background: #333;
+    padding: 12px;
+    color: #EEE;
+}
+
+.forum-topicsview-header {
+    background-color: #444;
+    color: #FFF;
+}
+
+.forum-topics-col-views {
+    width: 70px;
+    text-align: center;
+}
+
+
+.forum-topics-col-icon {
+    width: 70px;
+    color: #EEE;
+    text-align: center;
+}
+
+.forum-topics-col-lastpost {
+    width: 200px;
+    text-align: center;
+}
+
+.forum-topics-col-lastpost p {
+    font-size: 12px;
+    color: #DDD;
+}
+
+.forum_footer_wrap {
+    display: flex;
+    flex-direction: row;
+    margin-top: 12px;
+    width: 100%;
+}
+
+.forum_ledgend_wrap {
+    padding: 16px;
+    color: #EEE;
+}
+
+.forum_ledgend_wrap  p {
+    margin: 6px;
+}

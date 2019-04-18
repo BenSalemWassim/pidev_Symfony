@@ -1,0 +1,147 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+
+{% endblock %}
+
+{% block content %}
+
+    <div class="wrapper" class="form-group">
+
+
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="container-fluid">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ajouter question</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- Example split danger button -->
+                    <div class="form-group">
+                        <label
+                                class="col-sm-2 control-label"></label>
+                        <div class="col-sm-10">
+                            {{ form_start(form) }} Titre: {{ form_widget(form.titre) }}</br> catégorie: {{ form_widget(form.categorie) }}</br>  question: {{ form_widget(form.contenu) }}</br>
+
+                        </div>
+                    </div>
+
+                    <div class="form-group" >
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                        {{ form_widget(form.Ajouter) }}</br> {{ form_end(form) }}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <head>
+    <link rel="stylesheet" type="text/css" href="css.css">
+</head>
+<body>
+<div class="wrapper">
+    <!-- Button trigger modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+        Ajouter question
+    </button>
+    <table>
+
+        <th class="forum-topicsview-header" colspan="5"> Forums </th>
+        <tr>
+            <th class="">  </th>
+            <th class="" style="text-align: left;"> Sujets </th>
+            <th class="forum-topics-col-views"> Questions </th>
+            <th class="forum-topics-col-lastpost"> Derinere question </th>
+        </tr>
+
+        <tr class="forum-topicview-row">
+
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a  href="{{ path('categorie', {'id': "Developpement Web"}) }}"><p>Développement Web </p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[0].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[0].der.date is defined %}{{ cat[0].der.writer}}<br><b>{{ cat[0].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Developpement Mobile"}) }}"><p>Développement Mobile </p></a>
+            </td> <td class="forum-topics-col-views"> {{ cat[1].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[1].der.date is defined %}{{ cat[1].der.writer}}<br><b>{{ cat[1].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Design"}) }}"><p>Design </p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[2].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[2].der.date is defined %}{{ cat[2].der.writer}}<br><b>{{ cat[2].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Marketing"}) }}"><p>Marketing </p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[3].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[3].der.date is defined %}{{ cat[3].der.writer}}<br><b>{{ cat[3].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Systèmes dexploitation"}) }}"><p>Systèmes d'exploitation </p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[4].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[4].der.date is defined %}{{ cat[4].der.writer}}<br><b>{{ cat[4].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Reseaux"}) }}"><p>Réseaux </p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[5].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[5].der.date is defined %}{{ cat[5].der.writer}}<br><b>{{ cat[5].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Matériel & logiciels"}) }}"><p>Matériel & logiciels </p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[6].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[6].der.date is defined %}{{ cat[6].der.writer}}<br><b>{{ cat[6].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr class="forum-topicview-row">
+            <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+            <td class=""> <a href="{{ path('categorie', {'id': "Jeux vidéo"}) }}"><p>Jeux vidéo</p></a> </td>
+            <td class="forum-topics-col-views"> {{ cat[7].nr }} </td>
+            <td class="forum-topics-col-lastpost"> <p>Dérniere question par : {% if cat[7].der.date is defined %}{{ cat[7].der.writer}}<br><b>{{ cat[7].der.date|  date('Y-m-d\\TH:i:sP')}} {% endif %} </b></p> </td>
+        </tr>
+        <tr>
+            <th class="" colspan="5"> Smart Start</th>
+        </tr>
+
+    </table>
+
+    <div class="forum_footer_wrap">
+        <div class="forum_ledgend_wrap">
+
+        </div>
+    </div>
+
+</div>
+
+
+</body>
+
+{% endblock content %}
+
+        {% block javascripts %}
+            <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+            <script src="{{ asset('js/jquery-migrate-3.0.0.min.js') }}"></script>
+
+            <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        {% endblock %}

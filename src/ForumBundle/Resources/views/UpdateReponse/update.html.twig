@@ -1,0 +1,24 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ForumBundle:UpdateReponse:update{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+{% endblock %}
+{% block content %}
+<div class="wrapperx" class="form-group">
+    <div class="card">
+        <div class="card-body">
+            <div class="col-sm-10">
+                {{ form_start(form) }} modifier reponse: {{ form_widget(form.contenu) }}</br>
+
+            </div>
+            <div class="btn btn-primary">                {{ form_widget(form.Repondre) }}
+                {{ form_end(form) }}
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

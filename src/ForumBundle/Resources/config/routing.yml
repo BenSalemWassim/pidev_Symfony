@@ -1,0 +1,20 @@
+forum_homepage:
+    path:     /
+    defaults: { _controller: ForumBundle:Forum:afficherforum }
+
+
+affiche:
+    path:     /affiche/{id}
+    defaults: { _controller: ForumBundle:Question:affiche }
+categorie:
+    path: /categorie/{id}
+    defaults: {_controller: ForumBundle:Questions:index }
+deletereponse:
+        path: /delete/reponse/{idq}/{id}
+        defaults: {_controller: ForumBundle:Question:deleter }
+deletequestion:
+         path: /delete/question/{id}
+         defaults: {_controller: ForumBundle:Question:deleteq }
+update:
+    path:     /update/reponse/{idq}/{id}
+    defaults: { _controller: ForumBundle:UpdateReponse:update }

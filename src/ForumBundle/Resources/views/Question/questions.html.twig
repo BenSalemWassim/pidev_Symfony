@@ -1,0 +1,82 @@
+{% extends "::base.html.twig" %}
+
+
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+{% endblock %}
+       {% block javascripts %}
+           <script src="{{ asset('js/jquery-3.3.1.min.js') }}"></script>
+           <script src="{{ asset('js/jquery-migrate-3.0.0.min.js') }}"></script>
+
+           <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+           <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+           <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+       {% endblock %}
+
+{% block content %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $("#myTable tr").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+            });
+        });
+
+    </script>
+    <div class="wrapper" class="form-group">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="{{ path('forum_homepage') }}">Forum</a></li>
+                <li class="breadcrumb-item active" aria-current="page">{{ id }}</li>
+            </ol>
+        </nav>
+        <input type="text " id="myInput" name="table_search" class="form-control pull-right alert alert-info" placeholder="Search">
+    <table>
+
+        <th class="forum-topicsview-header" colspan="5"> Forums </th>
+
+
+        <tr>
+            <th class="">  </th>
+            <th class="" style="text-align: left;"> Questions</th>
+
+            <th class="forum-topics-col-views">Reponses</th>
+            <th class="forum-topics-col-lastpost"> Dérniere Reponse </th>
+        </tr>
+        <tbody id="myTable">
+        {% for r in questions  %}
+            <tr class="forum-topicview-row">
+                <td class="forum-topics-col-icon"> <i class="material-icons">chat_bubble</i> </td>
+                <td class="">  <a  href="{{ path('affiche', {'id': r.question.id}) }}">{{ r.question.titre}}</h4> </a> </td>
+                <td class="forum-topics-col-views">   {{r.nr }}</td>
+
+                <td class="forum-topics-col-lastpost"> <p>Dérniere Reponse par: {% if r.der.date is defined %}{{ r.der.writer }}<br><b>
+                            {{ r.der.date | date('Y-m-d\\TH:i:sP')}}
+
+
+
+
+                            {% endif %}</b></p> </td>
+            </tr>
+
+
+
+        {% endfor %}
+        </tbody>
+
+        <tr>
+            <th class="" colspan="5"> Smart Start</th>
+        </tr>
+
+    </table>
+
+<br>
+
+    </div>
+{% endblock content %}
