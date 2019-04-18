@@ -43,7 +43,8 @@ class QuestionController extends Controller
             $em->persist($rep);
 
             $em->flush();
-            $this->sendNotification(new Request(),$rep->getQuestion()->getWriter(),$this->getUser()->getUsername().' a repondu à votre question.');
+            if($this->getUser()->getId() != $rep->getQuestion()->getWriter()->getId() ){             $this->sendNotification(new Request(),$rep->getQuestion()->getWriter(),$this->getUser()->getUsername().' a repondu à votre question.');
+            }
             return $this->redirectToRoute('affiche',array('id'=>$question->getId())) ;
             //  return $this->render('@Forum/Question/affiche.html.twig', array( 'id' => $question->getId() ));
         }
