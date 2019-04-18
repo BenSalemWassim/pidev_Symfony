@@ -27,7 +27,7 @@ class Reponse
           /**
            *
            * Reponse constructor.
-           * @ORM\ManyToOne(targetEntity="ForumBundle\Entity\Question",cascade={"remove"})
+           * @ORM\ManyToOne(targetEntity="ForumBundle\Entity\Question")
            * @ORM\JoinColumn(name="question_id",referencedColumnName="id", onDelete="CASCADE")
            */
           private $question;

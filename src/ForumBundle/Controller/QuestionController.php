@@ -54,6 +54,12 @@ class QuestionController extends Controller
             'reps'=>$pagination
         ));
     }
+
+
+
+
+
+
     public function deleterAction(Request $request){
         $id = $request->attributes->get('id');
         $idq = $request->attributes->get('idq');
@@ -62,8 +68,14 @@ class QuestionController extends Controller
         $r= $this->getDoctrine()->getRepository(Reponse::class)->find($id);
 $em->remove($r);
 $em->flush();
-return $this->redirectToRoute('affiche',['id'=>$id]);
+return $this->redirectToRoute('affiche',['id'=>$idq]);
     }
+
+
+
+
+
+
     public function deleteqAction(Request $request){
         $id = $request->attributes->get('id');
 

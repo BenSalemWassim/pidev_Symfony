@@ -1,6 +1,7 @@
 {% extends "::base.html.twig" %}
 
 
+{% block title %}Question #{{ question.id }}{% endblock %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -70,7 +71,7 @@
                     {% if r.writer.id == app.user.id %}
                         <button class="btn btn-warning btn-sm float-right" ><i class="fa fa-pencil-square-o" aria-hidden="true"></i><a href="{{ path('update', {'idq':question.id , 'id':r.id }) }}"> <strong>Edit</strong> </a> </button>
 
-                        <button class="btn btn-danger btn-sm float-right"  ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a href="{{ path('deletereponse', { idq: question.id , id: r.id}) }}  "><strong>Supprimer</strong> </a></button>
+                        <button class="btn btn-danger btn-sm float-right"  ><i class="fa fa-pencil-square-o" aria-hidden="true"></i>  <a href="{{ path('deletereponse', { 'idq': question.id , 'id': r.id}) }}  "><strong>Supprimer</strong> </a></button>
 {% endif %}
                 </div>
                 <div class="card-body">
